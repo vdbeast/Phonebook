@@ -1,0 +1,8 @@
+.menu_container {
+    display: flex;
+    background-color: beige;
+    width: 300px; 
+    /* position: absolute;
+    right: 0; */
+   
+}

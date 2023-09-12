@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutUser } from 'redux/auth/api';
 import { selectUserData } from 'redux/auth/selectors';
+import style from './UserMenu.module.css'
 
 const UserMenu = () => {
 
@@ -12,7 +13,7 @@ const UserMenu = () => {
     dispatch(logOutUser());
   };
     return (
-        <div>
+        <div className={style.menu_container}>
           <span>Hello, {userData.name}</span>
           <button onClick={handleLogOut}>Log Out</button>
         </div>
