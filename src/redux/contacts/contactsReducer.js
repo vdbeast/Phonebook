@@ -2,20 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import { addContact, deleteContact, fetchContacts } from "./api";
 
 const contactInitialState = {
-    contacts: {
-        items: [],
-        isLoading: false,
-        error: null
-    },
+    contacts: [],
+    isLoading: false,
+    error: null
 };
 
 const handlePending = (state) => {
-    state.contacts.isLoading = true
+    state.isLoading  = true
 };
 
 const handleRejected = (state, action) => {
-    state.contacts.isLoading = false;
-    state.contacts.error = action.payload
+    state.isLoading  = false;
+    state.error = action.payload
 }
 
 const contactsSlice = createSlice({
@@ -26,23 +24,23 @@ const contactsSlice = createSlice({
         builder
             .addCase(fetchContacts.pending, handlePending)
             .addCase(fetchContacts.fulfilled, (state, action) => {
-                state.contacts.isLoading = false;
-                state.contacts.error = null;
-                state.contacts.items = action.payload;
+                state.isLoading = false;
+                state.error = null;
+                state.contacts = action.payload;
             })
             .addCase(fetchContacts.rejected, handleRejected)
             .addCase(addContact.pending, handlePending)
             .addCase(addContact.fulfilled, (state, action) => {
-                state.contacts.isLoading = false;
-                state.contacts.error = null;
-                state.contacts.items.push(action.payload);
+                state.isLoading = false;
+                state.error = null;
+                state.contacts.push(action.payload);
             })
             .addCase(addContact.rejected, handleRejected)
             .addCase(deleteContact.pending, handlePending)
             .addCase(deleteContact.fulfilled, (state, action) => {
-                state.contacts.isLoading = false;
-                state.contacts.error = null;
-                state.contacts.items = state.contacts.items.filter(
+                state.isLoading = false;
+                state.error = null;
+                state.contacts = state.contacts.filter(
                     (contact) => contact.id !== action.payload
                 );
             })

@@ -5,6 +5,7 @@ import Filter from "components/Filter/Filter";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from 'redux/contacts/api';
 import { selectError, selectIsLoading } from "redux/contacts/selectors";
+import Loader from 'components/Loader/Loader';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const ContactsPage = () => {
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader/>}
       {error && <p className="error">{error}</p>}
       {!isLoading && !error && <ContactList />}
     </div>
