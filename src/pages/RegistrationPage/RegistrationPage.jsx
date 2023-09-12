@@ -10,7 +10,6 @@ const RegistrationPage = () => {
 
   const handleSubmit = (event) => {
     
-
     event.preventDefault();
 
     const name = event.currentTarget.elements.userName.value;

@@ -18,6 +18,7 @@ const ContactList = () => {
   );
 
   const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter));
+  
   return (
     <ol>
       {filteredContacts.map((contact) => (
