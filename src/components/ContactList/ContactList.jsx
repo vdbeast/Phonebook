@@ -19,11 +19,11 @@ const ContactList = () => {
 
   const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter));
   return (
-    <ul>
+    <ol>
       {filteredContacts.map((contact) => (
         <ContactItem key={contact.id} contact={contact} onDelete={handleDeleteContact} />
       ))}
-    </ul>
+    </ol>
   );
 };
 

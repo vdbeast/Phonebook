@@ -20,7 +20,7 @@ const Navigation = () => {
   return (
     <div className={style.container}>
       <nav className={style.nav}>
-        <Stack direction="row" spacing={3}>
+        <Stack direction="row">
           <Button variant="contained">
             <NavLink to={HOME_ROUTE}>Home</NavLink>
           </Button>
@@ -29,7 +29,7 @@ const Navigation = () => {
               <Button variant="contained">
                 <NavLink to={CONTACTS_ROUTE}>Phonebook</NavLink>
               </Button>
-                  <UserMenu/>
+              <UserMenu className={ style.menu} />
                 </>
               ) : (
                 <>

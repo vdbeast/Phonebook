@@ -21,13 +21,11 @@ const ContactsPage = () => {
     <div className={style.container}>
         <h1 className={style.phonebook_title}>Phonebook</h1>
         <ContactForm />
-      <div>
-        <h2 className={style.phonebook_title}>Contacts</h2>
+        <h2 className={style.phonebook_title}>Contact List</h2>
         <Filter />
         {isLoading && <Loader/>}
         {error && <p className="error">{error}</p>}
         {!isLoading && !error && <ContactList />}
-      </div>
     </div>
   )
 }
