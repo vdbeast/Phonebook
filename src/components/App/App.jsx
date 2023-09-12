@@ -6,7 +6,7 @@ import { refreshUser } from 'redux/auth/api';
 import Navigation from "components/Navigation/Navigation";
 import Loader from "components/Loader/Loader";
 
-const NotFoundPage = lazy(() => import('../../pages/NotFoundPage'));
+const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage'));
 
 const App = () => {
 
