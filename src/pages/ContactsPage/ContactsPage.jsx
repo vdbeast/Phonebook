@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from 'redux/contacts/api';
 import { selectError, selectIsLoading } from "redux/contacts/selectors";
 import Loader from 'components/Loader/Loader';
+import style from './ContactPage.module.css'
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -17,14 +18,16 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      {isLoading && <Loader/>}
-      {error && <p className="error">{error}</p>}
-      {!isLoading && !error && <ContactList />}
+    <div className={style.container}>
+        <h1 className={style.phonebook_title}>Phonebook</h1>
+        <ContactForm />
+      <div>
+        <h2 className={style.phonebook_title}>Contacts</h2>
+        <Filter />
+        {isLoading && <Loader/>}
+        {error && <p className="error">{error}</p>}
+        {!isLoading && !error && <ContactList />}
+      </div>
     </div>
   )
 }

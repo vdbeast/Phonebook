@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "redux/contacts/api";
 import { nanoid } from 'nanoid';
 import { selectContacts } from "redux/contacts/selectors";
+import { Button, TextField } from "@mui/material";
+import style from './ContactForm.module.css'
 
 const ContactForm = () => {
     const dispatch = useDispatch();
@@ -24,33 +26,25 @@ const ContactForm = () => {
     };
 
     return (
-        <form
-            className="submit_form"
-            onSubmit={handleSubmit}>
-            <label className="label">
-                <input
+        <form onSubmit={handleSubmit}>
+            <div className={style.input_wrapper}>
+                <TextField
+                    margin="normal"
+                    required
                     type="text"
-                    placeholder="Name"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                    title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                    label="Name"
+                    onChange={e => setName(e.target.value)} />
+                <TextField
+                    margin="normal"
                     required
-                />
-            </label>
-            <label className="label">
-                <input
                     type="tel"
-                    placeholder="Number"
-                    value={number}
-                    onChange={e => setNumber(e.target.value)}
-                    pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                    title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                    required
-                />
-            </label>
-            <button type="submit" className="submit_btn">Add Contact</button>
-        </form>
+                    label="Number"
+                    onChange={e => setName(e.target.value)} />
+            </div>
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+                Add Contact
+            </Button>
+    </form>
     );
 };
 

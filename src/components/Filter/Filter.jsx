@@ -1,10 +1,9 @@
+import { TextField } from "@mui/material";
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setFilter } from "redux/contacts/filterReducer";
-import { selectContactsFilter } from "redux/contacts/selectors"
 
 const Filter = () => {
-  const filter = useSelector(selectContactsFilter);
   const dispatch = useDispatch();
 
   const handleFilterChange = e => {
@@ -13,9 +12,16 @@ const Filter = () => {
 
   return (
     <div>
-      <label className="label">Filter contacts:
-        <input type="text" value={filter} onChange={handleFilterChange} />
-      </label>
+      <TextField
+        margin="normal"
+        fullWidth
+        id="query"
+        label="Search name"
+        name="name"
+        autoComplete="name"
+        autoFocus
+        onChange={handleFilterChange}
+      />
     </div>
     );
 };
