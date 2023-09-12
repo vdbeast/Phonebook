@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { Button } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
+import style from './ContactItem.module.css'
 
 const ContactItem = ({ contact, onDelete }) => {
     return (
-        <li>
+        <li className={style.item}>
             {contact.name}: {contact.number}
-            <button className="delete_btn" onClick={() => onDelete(contact.id)}>Delete</button>
+            <Button variant="outlined" onClick={() => onDelete(contact.id)} startIcon={<DeleteIcon />}>Delete</Button>
         </li>
 )}
 
