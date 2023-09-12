@@ -2,6 +2,7 @@ import React from 'react';
 import style from './LoginPage.module.css';
 import { useDispatch } from 'react-redux';
 import { loginUser } from 'redux/auth/api';
+import { Button, TextField } from '@mui/material';
 
 const LoginPage = () => {
 
@@ -24,28 +25,31 @@ const LoginPage = () => {
 
   return (
     <div className={style.container}>
-      <h1>LoginPage</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <label>
-          <span>Email:</span>
-          <input
+          <TextField
+            margin="normal"
+            required
             type="email"
+            label="Email"
             name="userEmail"
             placeholder="Enter your email..."
-            required
           />
         </label>
         <label>
-          <span>Password:</span>
-          <input
+          <TextField
+            margin="normal"
+            required
             type="password"
+            label="Password"
             name="userPassword"
             placeholder="Enter your password..."
             minLength={7}
-            required
           />
         </label>
-        <button type="submit">Login</button>
+        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+          Login
+        </Button>
       </form>
     </div>
   )
