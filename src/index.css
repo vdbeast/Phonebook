@@ -50,3 +50,17 @@ code {
   border: 1px solid;
   border-radius: 5px;
 }
+
+.nav {
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.nav a {
+  background-color: aqua;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 5px;
+  color: black;
+}
