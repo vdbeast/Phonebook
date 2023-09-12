@@ -9,27 +9,39 @@ import {
 } from 'constants/routes';
 import { selectUserAuthentication } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
+import style from './Navigation.module.css';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
 const Navigation = () => {
 
   const authenticated = useSelector(selectUserAuthentication);
 
   return (
-      <div>
-          <nav className="nav">
+    <div className={style.container}>
+      <nav className={style.nav}>
+        <Stack direction="row" spacing={3}>
+          <Button variant="contained">
             <NavLink to={HOME_ROUTE}>Home</NavLink>
-  
-            {authenticated ? (
-              <>
+          </Button>
+              {authenticated ? (
+                <>
+              <Button variant="contained">
                 <NavLink to={CONTACTS_ROUTE}>Phonebook</NavLink>
-                <UserMenu/>
-              </>
-            ) : (
-              <>
-                <NavLink to={LOGIN_ROUTE}>Login</NavLink>
-                <NavLink to={REGISTER_ROUTE}>Register</NavLink>
-              </>
-            )}
+              </Button>
+                  <UserMenu/>
+                </>
+              ) : (
+                <>
+                <Button variant="contained">
+                  <NavLink to={LOGIN_ROUTE}>Login</NavLink>
+                </Button>
+                <Button variant="contained">
+                  <NavLink to={REGISTER_ROUTE}>Register</NavLink>
+                </Button>
+                </>
+              )}
+            </Stack>
           </nav>
       </div>
       
@@ -37,3 +49,4 @@ const Navigation = () => {
 }
 
 export default Navigation
+
