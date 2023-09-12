@@ -32,14 +32,16 @@ const ContactForm = () => {
                     margin="normal"
                     required
                     type="text"
+                    value={name}
                     label="Name"
                     onChange={e => setName(e.target.value)} />
                 <TextField
                     margin="normal"
                     required
                     type="tel"
+                    value={number}
                     label="Number"
-                    onChange={e => setName(e.target.value)} />
+                    onChange={e => setNumber(e.target.value)} />
             </div>
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
                 Add Contact
