@@ -17,7 +17,7 @@ const ContactList = () => {
     [dispatch]
   );
 
-  const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter));
+  const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
   
   return (
     <ul>
